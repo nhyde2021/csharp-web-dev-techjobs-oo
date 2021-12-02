@@ -70,6 +70,17 @@ namespace TechJobsTest
         {
             Assert.IsFalse(Equals(testJob4, testJob5));
         }
-
+        [TestMethod]
+        public void TestToStringForEmptyFirstAndLastLines()
+        {
+            string testString = testJob3.ToString();
+            Assert.AreEqual(testString[0], '\n');
+            Assert.AreEqual(testString[testString.Length - 1], '\n');
+        }
+        [TestMethod]
+        public void TestToStringFormat()
+        {
+            Assert.AreEqual($"\nID: 24\nName: Lead IT Guy\nEmployer: Amazon\nLocation: Jeffy B's place\nPosition Type: Management\nCore Competency: Smartness\n", testJob4.ToString());
+        }
     }
 }

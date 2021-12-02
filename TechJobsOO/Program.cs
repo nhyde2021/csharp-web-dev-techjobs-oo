@@ -22,6 +22,12 @@ namespace TechJobsOO
                 Console.WriteLine(job);
             }
             */
+            Employer testEmployer5 = new Employer("Amazon");
+            Location testLocation5 = new Location("Jeffy B's place");
+            PositionType testPositionType5 = new PositionType("Management");
+            CoreCompetency testCoreCompetency5 = new CoreCompetency("Smartness");
+            Job testJob5 = new Job("Lead IT Guy", testEmployer5, testLocation5, testPositionType5, testCoreCompetency5);
+            Console.WriteLine(testJob5.ToString());
         }
     }
 }
