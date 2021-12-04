@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 namespace TechJobsOO
 {
     public class Job
@@ -39,12 +40,29 @@ namespace TechJobsOO
         }
         public override string ToString()
         {
-            return $"\nID: {Id}\nName: {Name}\nEmployer: {EmployerName}\nLocation: {EmployerLocation}\nPosition Type: {JobType}\nCore Competency: {JobCoreCompetency}\n";
+            int dnaCount = 0;
+            List<string> jobFields = new List<string> { Name, EmployerName.Value, EmployerLocation.Value, JobType.Value, JobCoreCompetency.Value };
+
+            for (int i = 0; i < jobFields.Count; i++)
+            {
+                if (jobFields[i] == "")
+                {
+                    jobFields[i] = "Data not available";
+                    dnaCount++;
+                }
+            }
+            if (dnaCount == 5)
+            {
+                return "OOPS! This job does not seem to exist.";
+            }
+            
+
+            return $"\nID: {Id}\nName: {jobFields[0]}\nEmployer: {jobFields[1]}\nLocation: {jobFields[2]}\nPosition Type: {jobFields[3]}\nCore Competency: {jobFields[4]}\n";
 
         }
 
 
-
+    
         // TODO: Generate Equals() and GetHashCode() methods.
     }
 }

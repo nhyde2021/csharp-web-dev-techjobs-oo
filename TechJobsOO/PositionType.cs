@@ -21,7 +21,7 @@ namespace TechJobsOO
         public override bool Equals(object obj)
         {
             return obj is PositionType type &&
-                   Id == type.Id;
+                Id == type.Id;
         }
 
         public override int GetHashCode()

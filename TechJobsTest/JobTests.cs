@@ -27,6 +27,18 @@ namespace TechJobsTest
         CoreCompetency testCoreCompetency5;
         Job testJob5;
 
+        Employer testEmployer6;
+        Location testLocation6;
+        PositionType testPositionType6;
+        CoreCompetency testCoreCompetency6;
+        Job testJob6;
+
+        Employer testEmployer7;
+        Location testLocation7;
+        PositionType testPositionType7;
+        CoreCompetency testCoreCompetency7;
+        Job testJob7;
+
         [TestInitialize]
         public void CreateJobObjects()
         {
@@ -50,6 +62,18 @@ namespace TechJobsTest
             testPositionType5 = new PositionType("Management");
             testCoreCompetency5 = new CoreCompetency("Smartness");
             testJob5 = new Job("Lead IT Guy", testEmployer5, testLocation5, testPositionType5, testCoreCompetency5);
+
+            testEmployer6 = new Employer("Amazon");
+            testLocation6 = new Location("Jeffy B's place");
+            testPositionType6 = new PositionType("Management");
+            testCoreCompetency6 = new CoreCompetency("Smartness");
+            testJob6 = new Job("", testEmployer6, testLocation6, testPositionType6, testCoreCompetency6);
+
+            testEmployer7 = new Employer("");
+            testLocation7 = new Location("");
+            testPositionType7 = new PositionType("");
+            testCoreCompetency7 = new CoreCompetency("");
+            testJob7 = new Job("", testEmployer7, testLocation7, testPositionType7, testCoreCompetency7);
         }
         [TestMethod]
         public void TestSettingJobId()
@@ -80,7 +104,17 @@ namespace TechJobsTest
         [TestMethod]
         public void TestToStringFormat()
         {
-            Assert.AreEqual($"\nID: 24\nName: Lead IT Guy\nEmployer: Amazon\nLocation: Jeffy B's place\nPosition Type: Management\nCore Competency: Smartness\n", testJob4.ToString());
+            Assert.AreEqual($"\nID: 46\nName: Lead IT Guy\nEmployer: Amazon\nLocation: Jeffy B's place\nPosition Type: Management\nCore Competency: Smartness\n", testJob4.ToString());
+        }
+        [TestMethod]
+        public void TestFieldNotFilled()
+        {
+            Assert.AreEqual($"\nID: 6\nName: Data not available\nEmployer: Amazon\nLocation: Jeffy B's place\nPosition Type: Management\nCore Competency: Smartness\n", testJob6.ToString());
+        }
+        [TestMethod]
+        public void TestJobDoeNotExist()
+        {
+            Assert.AreEqual("OOPS! This job does not seem to exist.", testJob7.ToString());
         }
     }
 }
